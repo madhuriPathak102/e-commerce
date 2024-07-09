@@ -4,9 +4,9 @@
       class="carousel"
       [style.transform]="'translateX(-'+(currentSlide*100)+'%)'"
     >
-    <ng-container class="" *ngFor="let item of carouselData: let i=index">
+    <ng-container class="" *ngFor="let item of carouselData; let i=index">
       <a [routerLink]="item.path" class="carousel-item">
-        <img [scr]="item.image" alt="carousel image"/>
+        <img [src]="item.image" alt="carousel image"/>
       </a>
     </ng-container>
     </div>

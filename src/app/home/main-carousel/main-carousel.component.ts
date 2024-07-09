@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { homeCarouselData } from 'src/data/mainCarousel';
 
 @Component({
   selector: 'app-main-carousel',
@@ -10,6 +11,16 @@ export class MainCarouselComponent implements OnInit{
   currentSlide=0;
   interval:any;
   ngOnInit(): void {
-    throw new Error('Method not implemented.');
+    this.carouselData = homeCarouselData;
+    this.autoPlay()
+  }
+  autoPlay(){
+    setInterval(()=>{
+     this.nextSlide();
+    },2000)
+  }
+  nextSlide(){
+    this.currentSlide = (this.currentSlide+1)% this.carouselData.length;
+
   }
 }
