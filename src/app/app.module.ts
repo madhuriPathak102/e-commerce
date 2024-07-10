@@ -7,7 +7,9 @@ import { HomeComponent } from './home/home.component';
 import { MainCarouselComponent } from './home/main-carousel/main-carousel.component';
 import { HomeProductCardComponent } from './home/home-product-card/home-product-card.component';
 import { ProductSliderComponent } from './home/product-slider/product-slider.component';
-import { FormlyComponent } from './formly/formly.component';
+import { FormlyExampleComponent } from './formly-example/formly-example.component';
+import { FormlyModule } from './formly/formly.module';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -16,11 +18,14 @@ import { FormlyComponent } from './formly/formly.component';
     MainCarouselComponent,
     HomeProductCardComponent,
     ProductSliderComponent,
-    FormlyComponent
+    FormlyExampleComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormlyModule,
+    RouterModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]
