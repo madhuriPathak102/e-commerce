@@ -18,6 +18,7 @@
     "@angular/platform-browser": "^16.2.0",
     "@angular/platform-browser-dynamic": "^16.2.0",
     "@angular/router": "^16.2.0",
+    "@ngrx/store": "^16.3.0",
     "@ngx-formly/bootstrap": "^6.3.5",
     "@ngx-formly/core": "^6.3.5",
     "bootstrap": "^5.3.3",

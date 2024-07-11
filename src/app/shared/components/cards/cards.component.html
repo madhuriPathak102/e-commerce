@@ -1,0 +1,14 @@
+<div class="max-w-sm rounded overflow-hidden shadow-lg">
+    <div class="h-[12rem] w-[10rem] block mx-auto">
+        <img class="h-[12rem] w-[10rem]" [src]="product.image" alt="Sunset in the mountains">
+    </div>
+    
+    <div class="px-6 py-4">
+      <div class="text-sm mb-2">{{product.title.substring(0,50)}}...</div>
+      <p class="text-gray-700 text-base">{{product.description.substring(0,60)}}...</p>
+    </div>
+    <div class="px-6 pt-4 pb-2">
+        <button (click)="addToCart(product)" type="button" class="mt-4 w-full rounded-sm bg-green-500 px-2 py-1.5 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black">Add to card</button>
+        <button type="button" class="mt-4 w-full rounded-sm bg-yellow-500 px-2 py-1.5 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black">View product</button>
+      </div>
+  </div>
