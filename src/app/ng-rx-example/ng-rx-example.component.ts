@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { IProduct } from '../models/product.interface';
-import { ProductApiServiceService } from '../shared/service/product-api-service.service';
 import { Store } from '@ngrx/store';
 import { addToCart } from '../states/cart/cart.action';
+import * as ProductActions from '../states/products/product.action';
+import * as ProductSelectors from '../states/products/product.selector';
 
 @Component({
   selector: 'app-ng-rx-example',
@@ -12,10 +13,14 @@ import { addToCart } from '../states/cart/cart.action';
 })
 export class NgRxExampleComponent implements OnInit{
   
-  products = this.productApi.getProducts() as Observable<IProduct[]>;
+  products$!: Observable<IProduct[]>;
+  error$!: Observable<String | null>
   constructor(
-    private productApi :ProductApiServiceService,
-    private store:Store<{cart:{products: IProduct[]}}> ){}
+    private store:Store<{cart:{products: IProduct[]}}> ){
+      this.store.dispatch(ProductActions.loadProduct());
+      this.products$ = this.store.select(ProductSelectors.selectAllProducts);
+      this.error$ = this.store.select(ProductSelectors.selectProductError);
+    }
   ngOnInit(): void {
   }
   addItemToCart(product:IProduct){

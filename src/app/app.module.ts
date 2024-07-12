@@ -20,6 +20,9 @@ import { CardsComponent } from './shared/components/cards/cards.component';
 import { CartComponent } from './cart/cart.component';
 import { StoreModule } from '@ngrx/store';
 import { cartReducer } from './states/cart/cart.reducer';
+import { ProductReducer } from './states/products/product.reducer';
+import { EffectsModule } from '@ngrx/effects';
+import { ProductEffect } from './states/products/product.effect';
 
 export function minLengthValidationMessage(error: any, field: FormlyFieldConfig) {
   return `Should have atleast ${field.props?.minLength} characters`;
@@ -67,7 +70,8 @@ export function maxValidationMessage(error: any, field: FormlyFieldConfig) {
       ],
     }),
     FormlyBootstrapModule,
-    StoreModule.forRoot({ reducer:cartReducer})
+    StoreModule.forRoot({ cart:cartReducer, product:ProductReducer }),
+    EffectsModule.forRoot(ProductEffect),
   ],
   providers: [],
   bootstrap: [AppComponent]

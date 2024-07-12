@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { AppState } from '../states/app.state';
 import { Store } from '@ngrx/store';
-import { selectCartProducts } from '../states/cart/cart.selector';
+import { selectCartProducts, selectTotal } from '../states/cart/cart.selector';
+import { decrementProduct, incrementProduct, removeItem } from '../states/cart/cart.action';
 
 @Component({
   selector: 'app-cart',
@@ -9,11 +10,21 @@ import { selectCartProducts } from '../states/cart/cart.selector';
   styleUrls: ['./cart.component.scss']
 })
 export class CartComponent implements OnInit{
-  cartItems = this.store.select(selectCartProducts)
-  constructor(private store:Store<AppState>){}
-  ngOnInit(): void {
-    console.log('cartItems',this.cartItems);
-    
+  cartItems$ = this.store.select(selectCartProducts);
+  totalPrice$= this.store.select(selectTotal);
+  constructor(private store:Store<AppState>){
+    this.store.select(state => state).subscribe(console.log);
   }
+  ngOnInit(): void {
+  }
+  remove(productId:number){
+  this.store.dispatch(removeItem({productId}));
+  }
+  increment(productId:number){
+    this.store.dispatch(incrementProduct({productId}));
+    }
+  decriment(productId:number){
+      this.store.dispatch(decrementProduct({productId}));
+      }
 
 }
