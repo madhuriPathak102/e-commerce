@@ -1,7 +1,13 @@
 <div class="grid grid-cols-4 gap-5 pt-4">
-    <ng-container *ngFor="let item of products$ | async">
-        <app-cards [product]="item" (handleAdd)="addItemToCart($event)"/>
-    </ng-container>
+    <div *ngIf="error$ | async; else elseBlock">
+        <h1 class="text-4xl dark:text-white">Something went wrong while loading products</h1>
+      </div>
+      <ng-template #elseBlock>
+        <ng-container *ngFor="let item of products$ | async">
+            <app-cards [product]="item" (handleAdd)="addItemToCart($event)"/>
+        </ng-container>
+      </ng-template>
+    
 </div>
     
    

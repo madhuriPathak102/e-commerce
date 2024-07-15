@@ -26,7 +26,7 @@ export const cartReducer = createReducer(
   on(CartActions.incrementProduct, (state ,{ productId })=>{
     const updatedProduct = state.Products.map((product)=> 
     product.id === productId
-    ? {...product, quantoty:product.quantity+1} : product)
+    ? {...product, quantity:product.quantity+1} : product)
     return {
         ...state,
         Products:updatedProduct,
@@ -36,7 +36,7 @@ export const cartReducer = createReducer(
   on(CartActions.decrementProduct, (state ,{ productId })=>{
     const updatedProduct = state.Products.map((product)=> 
     product.id === productId
-    ? {...product, quantoty:product.quantity-1} : product)
+    ? {...product, quantity:product.quantity-1} : product)
     return {
         ...state,
         Products:updatedProduct,
@@ -45,7 +45,7 @@ export const cartReducer = createReducer(
   }),
   on(CartActions.removeItem , (state ,{ productId })=>{
     const updatedProduct = state.Products.filter((product)=> 
-    product.id ! == productId
+    product.id !== productId
     );
     return {
         ...state, 

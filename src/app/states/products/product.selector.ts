@@ -4,7 +4,7 @@ import { ProductState } from "./product.reducer";
 export const selectProductFeature = createFeatureSelector<ProductState>('product');
 export const selectAllProducts = createSelector(
     selectProductFeature,
-    (state:ProductState) => state
+    (state:ProductState) => state.Products
 )
 export const selectProductError = createSelector(
     selectProductFeature,
