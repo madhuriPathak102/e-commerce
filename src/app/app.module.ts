@@ -13,16 +13,15 @@ import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormlyModule ,FormlyFieldConfig} from '@ngx-formly/core';
 import { FormlyBootstrapModule } from '@ngx-formly/bootstrap';
-import { NgRxExampleComponent } from './ng-rx-example/ng-rx-example.component';
 import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { CardsComponent } from './shared/components/cards/cards.component';
-import { CartComponent } from './cart/cart.component';
 import { StoreModule } from '@ngrx/store';
 import { cartReducer } from './states/cart/cart.reducer';
 import { ProductReducer } from './states/products/product.reducer';
 import { EffectsModule } from '@ngrx/effects';
 import { ProductEffect } from './states/products/product.effect';
+import { NgRxSecondModule } from './second/ng-rx-second.module';
+import { Formly1Module } from './formly/formly.module';
 
 export function minLengthValidationMessage(error: any, field: FormlyFieldConfig) {
   return `Should have atleast ${field.props?.minLength} characters`;
@@ -48,9 +47,6 @@ export function maxValidationMessage(error: any, field: FormlyFieldConfig) {
     HomeProductCardComponent,
     ProductSliderComponent,
     FormlyExampleComponent,
-    NgRxExampleComponent,
-    CardsComponent,
-    CartComponent,
   ],
   imports: [
     CommonModule,
@@ -59,7 +55,9 @@ export function maxValidationMessage(error: any, field: FormlyFieldConfig) {
     AppRoutingModule,
     RouterModule,
     HttpClientModule,
+    NgRxSecondModule,
     ReactiveFormsModule,
+    Formly1Module,
     FormlyModule.forRoot({
       validationMessages: [
         { name: 'required', message: 'This field is required' },
