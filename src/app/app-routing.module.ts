@@ -14,10 +14,10 @@ const routes: Routes = [
     path:'formly',
     loadChildren:()=> import('./formly/formly.module').then(m=> m.Formly1Module)
   },
-  // {
-  //   path:'second',
-  //   loadChildren:()=> import('./second/ng-rx-second.module').then((m) => m.NgRxSecondModule)
-  // }
+  {
+    path:'second',
+    loadChildren:()=> import('./second/ng-rx-second.module').then((m) => m.NgRxSecondModule)
+  }
 ];
 
 @NgModule({
