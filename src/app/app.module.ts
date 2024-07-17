@@ -22,6 +22,9 @@ import { EffectsModule } from '@ngrx/effects';
 import { ProductEffect } from './states/products/product.effect';
 import { NgRxSecondModule } from './second/ng-rx-second.module';
 import { Formly1Module } from './formly/formly.module';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { rootReducer } from './states/user/reducer';
+import { environment } from 'src/environments/environment';
 
 export function minLengthValidationMessage(error: any, field: FormlyFieldConfig) {
   return `Should have atleast ${field.props?.minLength} characters`;
@@ -68,7 +71,8 @@ export function maxValidationMessage(error: any, field: FormlyFieldConfig) {
       ],
     }),
     FormlyBootstrapModule,
-    StoreModule.forRoot({ cart:cartReducer, product:ProductReducer }),
+    StoreDevtoolsModule.instrument({maxAge: 25, logOnly: environment.production}),
+    StoreModule.forRoot(rootReducer,({ cart:cartReducer, product:ProductReducer})),
     EffectsModule.forRoot(ProductEffect),
   ],
   providers: [],

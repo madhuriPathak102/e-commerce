@@ -7,5 +7,5 @@ import { User } from '../../models/user';
   styles: [``]
 })
 export class UserlistComponent {
-@Input() users!: User[];
+ 
 }
