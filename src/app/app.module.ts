@@ -16,8 +16,6 @@ import { FormlyBootstrapModule } from '@ngx-formly/bootstrap';
 import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { StoreModule } from '@ngrx/store';
-import { cartReducer } from './states/cart/cart.reducer';
-import { ProductReducer } from './states/products/product.reducer';
 import { EffectsModule } from '@ngrx/effects';
 import { ProductEffect } from './states/products/product.effect';
 import { NgRxSecondModule } from './second/ng-rx-second.module';
@@ -72,7 +70,8 @@ export function maxValidationMessage(error: any, field: FormlyFieldConfig) {
     }),
     FormlyBootstrapModule,
     StoreDevtoolsModule.instrument({maxAge: 25, logOnly: environment.production}),
-    StoreModule.forRoot(rootReducer,({ cart:cartReducer, product:ProductReducer})),
+    StoreModule.forRoot(rootReducer),
+    // StoreModule.forRoot(({ cart:cartReducer, product:ProductReducer,user:rootReducer})),
     EffectsModule.forRoot(ProductEffect),
   ],
   providers: [],

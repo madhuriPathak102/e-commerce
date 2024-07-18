@@ -5,24 +5,22 @@ import { NgRxSecondRoutingModule } from './ng-rx-second-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FlexLayoutModule, FlexModule } from '@angular/flex-layout';
-import { UserCardComponent } from './components/user-card/user-card.component';
-import { UserlistComponent } from './components/userlist/userlist.component';
 import { DashboardComponent } from './components/layout/dashboard/dashboard.component';
 import { HeaderComponent } from './components/layout/header/header.component';
 import { YoutubelayoutComponent } from './components/layout/youtube-layout/youtube-layout.component';
 import { UsersComponent } from './containers/users/users.component';
 import { MaterialModule } from './material.module';
 import { PostComponent } from './containers/post/post.component';
+import { ErrorComponent } from './components/error.component';
 
 @NgModule({
   declarations: [
-    UserCardComponent,
-    UserlistComponent,
     DashboardComponent,
     HeaderComponent,
     YoutubelayoutComponent,
     UsersComponent,
-    PostComponent
+    PostComponent,
+    ErrorComponent
   ],
   imports: [
     CommonModule,

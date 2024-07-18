@@ -2,7 +2,34 @@ import { Injectable } from '@angular/core';
 import { User } from '../models/user';
 import { Store } from '@ngrx/store';
 import { ApiServiceService } from './api-service.service';
-import { Observable, combineLatest } from 'rxjs';
+import { Observable, combineLatest, take } from 'rxjs';
+import { 
+  RootReducerState, 
+  getPostError, 
+  getPostLoaded, 
+  getPostLoading, 
+  getPosts, 
+  getUserById, 
+  getUserError, 
+  getUserLoaded, 
+  getUserLoading, 
+  getUsers } from 'src/app/states/user/reducer';
+import { 
+  UserAddAction, 
+  UserDeleteAction, 
+  UserListErrorAction, 
+  UserListRequestAction, 
+  UserListSuccessAction, 
+  UserUpdateAction } from 'src/app/states/user/action/user.action';
+import { Post } from '../models/post';
+import {Comment} from '../models/post';
+import { 
+  CommentAddAction, 
+  CommentDeleteAction, 
+  CommentUpdateAction, 
+  PostListErrorAction, 
+  PostListRequestAction, 
+  PostListSuccessAction } from 'src/app/states/user/action/post.action';
 
 @Injectable({
   providedIn: 'root'
