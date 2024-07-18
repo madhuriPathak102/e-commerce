@@ -12,6 +12,8 @@ import { UsersComponent } from './containers/users/users.component';
 import { MaterialModule } from './material.module';
 import { PostComponent } from './containers/post/post.component';
 import { ErrorComponent } from './components/error.component';
+import { PostCardComponent } from './components/post-card.component';
+import { PostListComponent } from './components/post-list.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { ErrorComponent } from './components/error.component';
     YoutubelayoutComponent,
     UsersComponent,
     PostComponent,
-    ErrorComponent
+    ErrorComponent,
+    PostCardComponent,
+    PostListComponent
   ],
   imports: [
     CommonModule,
