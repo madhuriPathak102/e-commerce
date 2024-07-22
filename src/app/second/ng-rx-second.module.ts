@@ -14,6 +14,10 @@ import { PostComponent } from './containers/post/post.component';
 import { ErrorComponent } from './components/error.component';
 import { PostCardComponent } from './components/post-card.component';
 import { PostListComponent } from './components/post-list.component';
+import { ViewUserComponent } from './containers/view-user.component';
+import { UserListComponent } from './components/user-list.component';
+import { UpdateUserComponent } from './components/update-user.component';
+import { UserCardComponent } from './components/user-card.component';
 
 @NgModule({
   declarations: [
@@ -21,10 +25,14 @@ import { PostListComponent } from './components/post-list.component';
     HeaderComponent,
     YoutubelayoutComponent,
     UsersComponent,
+    UserListComponent,
+    UpdateUserComponent,
+    UserCardComponent,
     PostComponent,
-    ErrorComponent,
     PostCardComponent,
-    PostListComponent
+    PostListComponent,
+    ErrorComponent,
+    ViewUserComponent
   ],
   imports: [
     CommonModule,
