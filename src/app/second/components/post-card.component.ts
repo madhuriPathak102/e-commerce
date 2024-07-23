@@ -32,5 +32,12 @@ export class PostCardComponent {
   deleteComment(id: number) {
     this.youtubeRepository.deleteComment(id, this.post.id);
   }
+  update() {
+    const comment: Comment = {
+      id: 124,
+      description: this.commentDescription
+    };
+    this.youtubeRepository.updateComment(comment, this.post.id);
+  }
 
 }

@@ -3,7 +3,7 @@
   <mat-card-content fxLayout="column">
     <div style="margin: 5px" fxLayout="row" fxLayoutGap="30px" *ngFor="let comment of post.comments">
       <p>{{comment.description}}</p>
-      <button mat-button color="accent">Edit</button>
+      <button mat-button color="accent" (click)="update()">Edit</button>
       <button (click)="deleteComment(comment.id)" mat-button color="warn">Delete</button>
     </div>
     <div fxFlex="row" fxLayoutGap="30px">

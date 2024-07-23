@@ -13,5 +13,5 @@ import { User } from '../models/user';
   ]
 })
 export class UserListComponent {
-  @Input() users: User[] | undefined;
+  @Input() users!: User[];
 }
